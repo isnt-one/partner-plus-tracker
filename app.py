@@ -6,16 +6,16 @@ GOAL_CHECK_TIMEOUT = 600 # delay in seconds
 
 log = setup_logger('core-app')
 
-async def interval_task(interval, func):
+async def interval_task(interval):
     while True:
-        asyncio.create_task(func)
+        asyncio.create_task(partner_plus_tracker())
         await asyncio.sleep(interval)
 
 def main():
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
 
-    coro = interval_task(GOAL_CHECK_TIMEOUT, partner_plus_tracker())
+    coro = interval_task(GOAL_CHECK_TIMEOUT)
 
     try:
         loop.run_until_complete(coro)
