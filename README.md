@@ -10,3 +10,5 @@ playwright install chromium
 python app.py
 ```
 - Add a `Text (GDI+)` source and select the `goal.txt` file from the trackers directory
+
+Note: Not required, but a basic script `watchdog.bat` is provided to make sure it stays running when needed. Feel free to use your own methods
